@@ -78,3 +78,13 @@ Result: 4 packets transmitted, 4 received, 0% packet loss.
 ## Known issues
 
 - `sudo apt update` shows 404 errors for `netdevops.fury.site ... Translation-en`. Harmless: the Containerlab apt repo doesn't publish translation files; package lists still download.
+### Data-plane test (2026-11-15)
+
+Re-ran on the current stack across the lab link itself. The September run above pinged the 172.20.20.x management network, which only proves the containers started.
+
+- Topology: `labs/L01-home-lab-build/l01-smoke.clab.yml` (2 Alpine nodes, 1 link, 10.0.0.0/30)
+- `n1-eth1.txt`: eth1 is UP with 10.0.0.1/30
+- `ping-n1-to-n2.txt`: 4/4 received, 0% loss, TTL 64 (direct link, no router hop)
+- `inspect.txt`: Containerlab node table
+- `gh auth login --web` can't open a browser from WSL ("xdg-open... not found"). Workaround: open https://github.com/login/device manually. Permanent fix: `sudo apt install wslu`.
+- `gh` stores the GitHub token in plain text (no keyring in WSL). Acceptable on a personal laptop; revoke it under GitHub Settings → Applications if the machine is lost.

@@ -1,0 +1,6 @@
+9: eth1@if10: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 9500 qdisc noqueue state UP 
+    link/ether aa:c1:ab:7d:04:8e brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.1/30 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a8c1:abff:fe7d:48e/64 scope link 
+       valid_lft forever preferred_lft forever
