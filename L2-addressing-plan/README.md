@@ -1,5 +1,3 @@
-```markdown
-
 # L2: Enterprise Addressing Plan (IPv4 + IPv6)
 
 ## Topology Diagram
