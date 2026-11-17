@@ -1,6 +1,6 @@
 ```markdown 
 # L3: Cisco Baseline Hardening Template
-
+ 
 ## Objective 
 Automate the generation of a secure, "golden config" baseline for Cisco devices using Python and Jinja2.
 
