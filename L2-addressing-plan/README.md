@@ -7,6 +7,7 @@ graph TD
     A --> C(Site 2: 10.0.64.0/18)
     A --> D(Site 3: 10.0.128.0/18)
     A --> E(Site 4: 10.0.192.0/18)
+```
 
 ```markdown
 ## IPv4 Addressing & Summarization Math
@@ -32,3 +33,22 @@ graph TD
 | 30 | Server | 10.0.6.0/24 | 10.0.6.1 |
 | 40 | Mgmt | 10.0.7.0/24 | 10.0.7.1 |
 | 50 | Guest | 10.0.8.0/22 | 10.0.8.1 |
+```
+```markdown
+## IPv6 Addressing
+*Parent /48 assigned to each site. /64 assigned per VLAN.*
+
+| Site | Site IPv6 Block | VLAN 10 (Data) | VLAN 20 (Voice) |
+| :--- | :--- | :--- | :--- |
+| Site 1 | 2001:db8:1::/48 | 2001:db8:1:10::/64 | 2001:db8:1:20::/64 |
+| Site 2 | 2001:db8:2::/48 | 2001:db8:2:10::/64 | 2001:db8:2:20::/64 |
+| Site 3 | 2001:db8:3::/48 | 2001:db8:3:10::/64 | 2001:db8:3:20::/64 |
+| Site 4 | 2001:db8:4::/48 | 2001:db8:4:10::/64 | 2001:db8:4:20::/64 |
+
+## Failure Log (Design Flaws Caught)
+**Hypothesis 1:** Allocating a /24 for the Data VLAN.
+*Test:* 300 users + 100% growth = 600 IPs. A /24 only provides 254 usable IPs.
+*Result:* Exhausted IP pool. 
+*Fix:* Re-subnetted to a /22 (1,022 usable IPs) to allow for headroom and future growth.
+```
+
