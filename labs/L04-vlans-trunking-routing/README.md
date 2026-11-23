@@ -54,15 +54,53 @@ sudo containerlab destroy -t l4.clab.yml --cleanup
 ## Verification
 
 ### Phase A — router-on-a-stick
-_Paste `results/matrix-phaseA.md` here._
+| src \ dst | pc10 | pc20 | pc30 | pc40 | pc50 | pc60 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| **pc10** | — | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **pc20** | ✅ | — | ✅ | ✅ | ✅ | ✅ |
+| **pc30** | ✅ | ✅ | — | ✅ | ✅ | ✅ |
+| **pc40** | ✅ | ✅ | ✅ | — | ✅ | ✅ |
+| **pc50** | ✅ | ✅ | ✅ | ✅ | — | ✅ |
+| **pc60** | ✅ | ✅ | ✅ | ✅ | ✅ | — |
+
+Result (phaseA): 30 passed, 0 failed of 30 inter-host paths
+64 bytes from 10.0.60.10: icmp_seq=1 ttl=63 time=0.097 ms
+
+Gateways on r1 subinterfaces `r1-sw1.10`–`.60` (see `results/phaseA-state.txt`). Every trunk carries VLANs 10–60 tagged with VLAN 99 as the untagged PVID; no port is in VLAN 1.
 
 ### Phase B — SVIs
-_Paste `results/matrix-phaseB.md` here._
+| src \ dst | pc10 | pc20 | pc30 | pc40 | pc50 | pc60 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| **pc10** | — | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **pc20** | ✅ | — | ✅ | ✅ | ✅ | ✅ |
+| **pc30** | ✅ | ✅ | — | ✅ | ✅ | ✅ |
+| **pc40** | ✅ | ✅ | ✅ | — | ✅ | ✅ |
+| **pc50** | ✅ | ✅ | ✅ | ✅ | — | ✅ |
+| **pc60** | ✅ | ✅ | ✅ | ✅ | ✅ | — |
+
+Result (phaseB): 30 passed, 0 failed of 30 inter-host paths
+64 bytes from 10.0.60.10: icmp_seq=1 ttl=63 time=0.115 ms
+
+`results/phaseB-state.txt` shows r1 with **no** VLAN subinterfaces left and the gateways on sw1 SVIs `br0.10`–`br0.60`. The matrix still passes at TTL 63, so sw1 is doing the routing.
 
 ### Packet capture
-- `captures/trunk-sw1-r1.pcapng` — ICMP frames carrying 802.1Q tags (VLAN 10 and VLAN 20).
-- `captures/access-sw1-pc10.pcapng` — the same traffic, untagged.
-- _Add a screenshot of the Wireshark 802.1Q header here._
+One ping, pc10 (VLAN 10) → pc20 (VLAN 20), captured simultaneously on the trunk and the access port.
+
+**Trunk `sw1-r1`** — `captures/trunk-sw1-r1.pcap`
+```
+ee:b2:be:5f:4b:19 > 4e:8c:9a:d6:4f:f3, ethertype 802.1Q (0x8100), length 102: vlan 10, p 0, ethertype IPv4, 10.0.10.10 > 10.0.20.10: ICMP echo request
+4e:8c:9a:d6:4f:f3 > 3a:cf:7b:6c:ea:b5, ethertype 802.1Q (0x8100), length 102: vlan 20, p 0, ethertype IPv4, 10.0.10.10 > 10.0.20.10: ICMP echo request
+```
+**Access `sw1-pc10`** — `captures/access-sw1-pc10.pcap`
+```
+ee:b2:be:5f:4b:19 > 4e:8c:9a:d6:4f:f3, ethertype IPv4 (0x0800), length 98: 10.0.10.10 > 10.0.20.10: ICMP echo request
+```
+
+What it shows:
+- **102 vs 98 bytes** — the 4-byte difference is the 802.1Q tag (TPID `0x8100` + PCP/DEI/VID).
+- **The same packet crosses the trunk twice** — up in VLAN 10, back down in VLAN 20. That is router-on-a-stick on the wire.
+- **The MAC addresses are rewritten, the IP addresses are not** — r1 (`4e:8c:…`) replaces the Layer 2 header for the next hop.
+- `p 0` is the 802.1p priority field (PCP), unused here.
 
 ## Failure log
 
@@ -88,8 +126,16 @@ _Paste `results/matrix-phaseB.md` here._
 
 **Design changes for the rebuild:** one VLAN-aware bridge per switch instead of a bridge per VLAN, so native VLAN 99 is real. Direct veth cables named `A-B`, so no MAC mapping and no stray Docker 172.x addresses. One host per VLAN for a true 6×6 matrix. One-command rebuild.
 
-### Session 2 — clean rebuild
-_Log anything that breaks during `deploy.sh` / `phaseB-svi.sh` here._
+### Session 2 — 2026-11-22 (clean rebuild with `deploy.sh`)
+
+`deploy.sh`, both matrices and `capture.sh` passed on the first run. Problems found:
+
+| # | Problem | Cause | Fix / lesson |
+|---|---|---|---|
+| 1 | `bridge: executable file not found` inside Alpine | BusyBox `ip` ships without iproute2's `bridge` | Read `master` from `ip link show`. The rebuild runs host iproute2 inside each node via `nsenter` |
+| 2 | Pasted a block of dependent commands, and failures cascaded | `git pull` aborted, then `mv` and `cd` failed and later commands ran in the wrong folder | Run dependent commands one at a time or chain them with `&&` |
+| 3 | `git pull` refused: untracked L3 `README.md` would be overwritten | A local copy of a file existed outside git | Moved it aside, pulled, compared with `diff` |
+| 4 | Second run of `phaseB-svi.sh`: `RTNETLINK answers: File exists` | Script was not idempotent | Now skips SVIs that already exist |
 
 ## Interview summary
 
