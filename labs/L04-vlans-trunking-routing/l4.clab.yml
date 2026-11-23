@@ -1,0 +1,23 @@
+# APEX L4 — VLANs, 802.1Q trunking, inter-VLAN routing
+# Nodes only. Links ("cables") are created by deploy.sh as direct veth pairs,
+# which avoids the containerlab "failed to rename link" error seen on WSL2
+# and the stray Docker-assigned 172.x addresses from manual Docker networks.
+name: l4
+
+topology:
+  defaults:
+    kind: linux
+    image: alpine:latest
+    cmd: sleep infinity
+
+  nodes:
+    r1: {}
+    sw1: {}
+    sw2: {}
+    sw3: {}
+    pc10: {}
+    pc20: {}
+    pc30: {}
+    pc40: {}
+    pc50: {}
+    pc60: {}
