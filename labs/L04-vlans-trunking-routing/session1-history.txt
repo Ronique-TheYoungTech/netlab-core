@@ -1,0 +1,576 @@
+    1  cd ~
+    2  pwd
+    3  sudo apt update && sudo apt install -y git
+    4  git clone https://github.com/Ronique-TheYoungTech/netlab-core.git
+    5  cd netlab-core
+    6  ls
+    7  curl -sL https://containerlab.dev/setup | sudo bash
+    8  containerlab version
+    9  curl -sL https://containerlab.dev/setup
+   10  curl -sL https://containerlab.dev/setup | sudo bash
+   11  echo "Exit code: $?"
+   12  curl -sL https://containerlab.dev/setup -o /tmp/setup.sh
+   13  sudo bash -x /tmp/setup.sh 2>&1 | tail -40
+   14  curl -sL https://containerlab.dev/setup | sudo bash -s -- all
+   15  10;rgb:cccc/cccc/cccc;1R11;rgb:0c0c/0c0c/0c0c;36R
+   16  sudo usermod -aG clab_admins $USER && newgrp clab_admins
+   17  cd ~/netlab-core
+   18  containerlab version
+   19  docker version
+   20  sudo apt update
+   21  sudo apt install -y docker.io
+   22  sudo service docker start
+   23  docker version
+   24  nano test-topo.yml
+   25  sudo containerlab deploy -t test-topo.yml
+   26  sudo docker exec clab-test-topo-node1 ping -c 4 172.20.20.3
+   27  sudo containerlab destroy -t test-topo.yml
+   28  rm test-topo.yml
+   29  ls
+   30  rm -rf clab-test-topo
+   31  ls
+   32  lsb_release -a
+   33  uname -r
+   34  docker --version
+   35  containerlab version
+   36  git --version
+   37  mkdir -p docs
+   38  nano docs/lab-build.md
+   39  cat docs/lab-build.md
+   40  grep -c '```' docs/lab-build.md
+   41  cat docs/lab-build.md
+   42  sudo apt update && sudo apt -y upgrade lsb_release -a
+   43  cd ~ 
+   44  sudo apt -y upgarde 
+   45  sudo apy -y upgrade 
+   46  sudo apt -y upgrade 
+   47  clear
+   48  lsb_release -a 
+   49  containerlab version
+   50  docker --version 
+   51  docker ps 
+   52  docker run --rm hello-world 
+   53  clear
+   54  ls ~
+   55  git config --global user.name 
+   56  git config --global user.email 
+   57  l 192030393+Ronique-TheYoungTech@users.noreply.github.com"
+   58  exit 
+   59  clear 
+   60  cd ~
+   61  git config --global user.name "Ronique Young"
+   62  git config --global user.email "192030393+Ronique-TheYoungTech@users.noreply.github.com"
+   63  git config --global init.defaultBranch main
+   64  git config --global --list
+   65  cd ~/netlab-core
+   66  ls -la
+   67  git status 
+   68  git log --oneline 
+   69  git remote -v
+   70  ls -la docs 
+   71  cat README.md
+   72  clear 
+   73  cat docs/lab-build.md
+   74  clea 
+   75  clear 
+   76  git --verison 
+   77  groups 
+   78  git --version
+   79  nano docs/lab-build.md
+   80  tail -n 15 docs/lab-build.md
+   81  grep -n "Hardware\|Last updated" docs/lab-build.md
+   82  git status
+   83  nano docs/lab-build.md 
+   84  grep -n "Hardware\|Last updated" docs/lab-build.md
+   85  git add docs/lab-build.md 
+   86  git status 
+   87  git commit -m "L1: home lab build doc - stack table, Mermaid topology, rebuild steps, verification, known issues"
+   88  git push 
+   89  gh auth login 
+   90  gh auth login --hostname github.com --git-protocol https --web
+   91  git status 
+   92  git push 
+   93  mkdir -p ~/netlab-core/labs/L01-home-lab-build
+   94  cd ~/netlab-core
+   95  echo "clab-*/" > .gitignore
+   96  cd labs/L01-home-lab-build
+   97  nano 101-smoke.clab.yml
+   98  cat 101-smoke.clab.yml
+   99  containerlab deploy -t *.clab.yml
+  100  docker exec clab-101-smoke-n1 ip addr show eth1 | tee n1-eth1.txt
+  101  docker exec clab-101-smoke-n1 ping -c 4 10.0.0.2 | tee ping-n1-to-n2.txt
+  102  containerlab inspect -t *.clab.yml | tee inspect.txt
+  103  docker ps --format "{{.Names}}"
+  104  docker exec clab-l01-smoke-n1 ip addr show eth1 | tee n1-eth1.txt
+  105  docker exec clab-l01-smoke-n1 ping -c 4 10.0.0.2 | tee ping-n1-to-n2.txt
+  106  containerlab destroy -t *.clab.yml --cleanup
+  107  ls -la
+  108  mv *.clab.yml l01-smoke.clab.yml
+  109  cd ~/netlab-core
+  110  nano docs/lab-build.md
+  111  git add .gitignore docs/lab-build.md labs/
+  112  git status
+  113  git commit -m "L1: add data-plane test topology and evidence, ignore clab runtime dirs, add WSL known issues"
+  114  git push
+  115  mkdir L2-addressing-plan 
+  116  cd L2-addressing-plan 
+  117  pwd
+  118  explorer.exe
+  119  cd ~/netlab-core/L2-addressing-plan 
+  120  cp /mnt/c/Users/pelry/Downloads/addressing-plan.xlsx .
+  121  ls -l
+  122  nano README.md 
+  123  ls -l
+  124  cat << 'EOF' > README.md
+  125  # L2: Enterprise Addressing Plan (IPv4 + IPv6)
+  126  ## Topology Diagram
+  127  ```mermaid
+  128  graph TD
+  129      A[Meridian Logistics HQ] --> B(Site 1: 10.0.0.0/18)
+  130      A --> C(Site 2: 10.0.64.0/18)
+  131      A --> D(Site 3: 10.0.128.0/18)
+  132      A --> E(Site 4: 10.0.192.0/18)
+  133  EOF
+  134  nano README.md 
+  135  curl -sL https://gist.githubusercontent.com/anonymous/8e1c5069bbdf945d9a35d9a885ccd1e7/raw/README.md -o README.md
+  136  tail -n 5 README.md
+  137  ls -l
+  138  nano README.md
+  139  cd ~/netlab-core/L2-addressing-plan 
+  140  curl -o README.md https://gist.githubusercontent.com/Ronique-TheYoungTech/9a407fe11121b513055879b22366d42b/raw/README.md
+  141  cat README.md
+  142  git add .
+  143  git commit -m "feat(L2): add enterprise addressing plan and summary README"
+  144  git push origin main
+  145  curl -L https://raw.githubusercontent.com/Ronique-TheYoungTech/netlab-core/main/README.md
+  146  echo "IyBMMjogRW50ZXJwcmlzZSBBZGRyZXNzaW5nIFBsYW4gKElQdjQgKyBJUHY2KQoKIyMgVG9wb2xvZ3kgRGlhZ3JhbQpgYGBtZXJtYWlkCmdyYXBoIFRECiAgICBBW01lcmlkaWFuIExvZ2lzdGljcyBIUV0gLS0+IEIoU2l0ZSAxOiAxMC4wLjAuMC8xOCkKICAgIEEgLS0+IEMoU2l0ZSAyOiAxMC4wLjY0LjAvMTgpCiAgICBBIC0tPiBEKFNpdGUgMzogMTAuMC4xMjguMC8xOCkKICAgIEEgLS0+IEUoU2l0ZSA0OiAxMC4wLjE5Mi4wLzE4KQpgYGAKCiMjIElQdjQgQWRkcmVzc2luZyAmIFN1bW1hcml6YXRpb24gTWF0aAoqUGFyZW50IEJsb2NrIGNob3NlbjogMTAuMC4wLjAvMTYqCgp8IFNpdGUgfCBTdW1tYXJ5IEJsb2NrIHwgU3VibmV0IE1hc2sgfCBUb3RhbCBJUHMgfAp8IDotLS0gfCA6LS0tIHwgOi0tLSB8IDotLS0gfAp8IFNpdGUgMSB8IDEwLjAuMC4wLzE4IHwgMjU1LjI1NS4xOTIuMCB8IDE2LDM4NCB8CnwgU2l0ZSAyIHwgMTAuMC42NC4wLzE4IHwgMjU1LjI1NS4xOTIuMCB8IDE2LDM4NCB8CnwgU2l0ZSAzIHwgMTAuMC4xMjguMC8xOCB8IDI1NS4yNTUuMTkyLjAgfCAxNiwzODQgfAp8IFNpdGUgNCB8IDEwLjAuMTkyLjAvMTggfCAyNTUuMjU1LjE5Mi4wIHwgMTYsMzg0IHwKCioqUHJvb2Ygb2YgU3VtbWFyaXphdGlvbjoqKgpBbGwgVkxBTnMgZm9yIFNpdGUgMSBmYWxsIHdpdGhpbiB0aGUgYm91bmRzIG9mIDEwLjAuMC4wLzE4LiBGb3IgZXhhbXBsZSwgb3VyIGxhcmdlc3QgVkxBTiAoRGF0YSkgaXMgMTAuMC4wLjAvMjIsIHdoaWNoIGVuZHMgYXQgMTAuMC4zLjI1NS4gVGhlIG5leHQgVkxBTiAoVm9pY2UpIGlzIDEwLjAuNC4wLzIzLiBBbGwgb2YgdGhlc2UgZml0IHBlcmZlY3RseSBpbnNpZGUgdGhlIDEwLjAuMC4wIC0gMTAuMC42My4yNTUgcmFuZ2UuIE5vbmUgb2YgdGhlc2Ugc3VibmV0cyBibGVlZCBpbnRvIHRoZSBTaXRlIDIgYmxvY2sgd2hpY2ggc3RhcnRzIGF0IDEwLjAuNjQuMC4qCgojIyBWTEFOIERlc2lnbiAoU2l0ZSAxIEV4YW1wbGUpCipBY2NvdW50aW5nIGZvciAzMDAgdXNlcnMgKDEsMjAwIC8gNCkgYW5kIDJ4IGhlYWRyb29tLioKCnwgVkxBTiB8IFB1cnBvc2UgfCBTdWJuZXQgfCBHYXRld2F5IHwKfCA6LS0tIHwgOi0tLSB8IDotLS0gfCA6LS0tIHwKfCAxMCB8IERhdGEgfCAxMC4wLjAuMC8yMiB8IDEwLjAuMC4xIHwKfCAyMCB8IFZvaWNlIHwgMTAuMC40LjAvMjMgfCAxMC4wLjQuMSB8CnwgMzAgfCBTZXJ2ZXIgfCAxMC4wLjYuMC8yNCB8IDEwLjAuNi4xIHwKfCA0MCB8IE1nbXQgfCAxMC4wLjcuMC8yNCB8IDEwLjAuNy4xIHwKfCA1MCB8IEd1ZXN0IHwgMTAuMC44LjAvMjIgfCAxMC4wLjguMSB8CgojIyBJUHY2IEFkZHJlc3NpbmcKKlBhcmVudCAvNDggYXNzaWduZWQgdG8gZWFjaCBzaXRlLiAvNjQgYXNzaWduZWQgcGVyIFZMQU4uKgoKfCBTaXRlIHwgU2l0ZSBJUHY2IEJsb2NrIHwgVkxBTiAxMCAoRGF0YSkgfCBWTEFOIDIwIChWb2ljZSkgfAp8IDotLS0gfCA6LS0tIHwgOi0tLSB8IDotLS0gfAp8IFNpdGUgMSB8IDIwMDE6ZGI4OjE6Oi80OCB8IDIwMDE6ZGI4OjE6MTA6Oi82NCB8IDIwMDE6ZGI4OjE6MjA6Oi82NCB8CnwgU2l0ZSAyIHwgMjAwMTpkYjg6Mjo6LzQ4IHwgMjAwMTpkYjg6MjoxMDo6LzY0IHwgMjAwMTpkYjg6MjoyMDo6LzY0IHwKfCBTaXRlIDMgfCAyMDAxOmRiODozOjovNDggfCAyMDAxOmRiODozOjEwOjovNjQgfCAyMDAxOmRiODozOjIwOjovNjQgfAp8IFNpdGUgNCB8IDIwMDE6ZGI4OjQ6Oi80OCB8IDIwMDE6ZGI4OjQ6MTA6Oi82NCB8IDIwMDE6ZGI4OjQ6MjA6Oi82NCB8CgojIyBGYWlsdXJlIExvZyAoRGVzaWduIEZsYXdzIENhdWdodCkKKipIeXBvdGhlc2lzIDE6KiogQWxsb2NhdGluZyBhIC8yNCBmb3IgdGhlIERhdGEgVkxBTi4KKlRlc3Q6KiAzMDAgdXNlcnMgKyAxMDAlIGdyb3d0aCA9IDYwMCBJUHMuIEEgLzI0IG9ubHkgcHJvdmlkZXMgMjU0IHVzYWJsZSBJUHMuCipSZXN1bHQ6KiBFeGhhdXN0ZWQgSVAgcG9vbC4gCipGaXg6KiBSZS1zdWJuZXR0ZWQgdG8gYSAvMjIgKDEsMDIyIHVzYWJsZSBJUHMpIHRvIGFsbG93IGZvciBoZWFkcm9vbSBhbmQgZnV0dXJlIGdyb3d0aC4K" | base64 -d > README.md
+  147  mkdir L3-baseline-template 
+  148  cd L3-baseline-template
+  149  python --version
+  150  pip install jinja2
+  151  sudo apt update && sudo apt install python3-pip -y
+  152  pip install jinga2
+  153  nano baseline.j2
+  154  nano render_template.py 
+  155  python3 render_template.py
+  156  nano render_template.py
+  157  python3 render_template.py
+  158  cat Meridian_RTR-01.cfg
+  159  nano render_template.py 
+  160  python3 render_template.py
+  161  from jinja2 import Environment, FileSystemLoader
+  162  # 1. Setup Jinja2 to look in the current directory for templates
+  163  env = Environment(loader=FileSystemLoader('.'))
+  164  # 2. Load the template file we just created
+  165  template = env.get_template('baseline.j2')
+  166  # 3. Define the variables (the "Mad Libs" answers) for our router
+  167  router_vars = {
+  168  }
+  169  # 4. Render the template with the variables
+  170  rendered_config = template.render(router_vars)
+  171  # 5. Print it to the screen
+  172  print(rendered_config)
+  173  # 6. Save it to a file called Meridian-RTR-01.cfg
+  174  with open("Meridian-RTR-01.cfg", "w") as f:
+  175  from jinja2 import Environment, FileSystemLoader
+  176  # 1. Setup Jinja2 to look in the current directory for templates
+  177  env = Environment(loader=FileSystemLoader('.'))
+  178  # 2. Load the template file we just created
+  179  template = env.get_template('baseline.j2')
+  180  # 3. Define the variables (the "Mad Libs" answers) for our router
+  181  router_vars = {
+  182  }
+  183  # 4. Render the template with the variables
+  184  rendered_config = template.render(router_vars)
+  185  # 5. Print it to the screen
+  186  print(rendered_config)
+  187  # 6. Save it to a file called Meridian-RTR-01.cfg
+  188  with open("Meridian-RTR-01.cfg", "w") as f:
+  189  nano render_template.py 
+  190  python3 render_template.py
+  191  nano render_template.py
+  192  python3 render_template.py
+  193  echo "ZnJvbSBqaW5qYTIgaW1wb3J0IEVudmlyb25tZW50LCBGaWxlU3lzdGVtTG9hZGVyCgplbnYgPSBFbnZpcm9ubWVudChsb2FkZXI9RmlsZVN5c3RlbUxvYWRlcignLicpKQp0ZW1wbGF0ZSA9IGVudi5nZXRfdGVtcGxhdGUoJ2Jhc2VsaW5lLmoyJykKCnJvdXRlcl92YXJzID0gewogICAgImhvc3RuYW1lIjogIk1lcmlkaWFuLVNXLTAyIiwKICAgICJiYW5uZXJfbWVzc2FnZSI6ICJVTkFVVEhPUklaRUQgQUNDRVNTIFBST0hJQklURUQuIExhYiBlbnZpcm9ubWVudC4iLAogICAgImRvbWFpbl9uYW1lIjogIm1lcmlkaWFuLmxvY2FsIiwKICAgICJzeXNsb2dfc2VydmVyIjogIjEwLjAuNy41MCIsCiAgICAibnRwX3NlcnZlciI6ICIxMC4wLjguNjAiCn0KCnJlbmRlcmVkX2NvbmZpZyA9IHRlbXBsYXRlLnJlbmRlcihyb3V0ZXJfdmFycykKCnByaW50KHJlbmRlcmVkX2NvbmZpZykKCndpdGggb3BlbigiTWVyaWRpYW4tUlRSLTAxLmNmZyIsICJ3IikgYXMgZjoKICAgIGYud3JpdGUocmVuZGVyZWRfY29uZmlnKQo=" | base64 -d > render_template.py
+  194  python3 render_template.py
+  195  git add
+  196  git add.
+  197  git add .
+  198  git commit -m "feat(L3): create Jinja2 baseline hardening template and python renderer"
+  199  git push origin main 
+  200  git pull origin main 
+  201  git pull origin main --no-rebase
+  202  git stash
+  203  git pull origin main --no-rebase
+  204  git push origin main 
+  205  nano README.md
+  206  git add
+  207  # L3: Cisco Baseline Hardening Template
+  208  ## Objective
+  209  Automate the generation of a secure, "golden config" baseline for Cisco devices using Python and Jinja2.
+  210  ## Evidence Standard
+  211  * **Template:** `baseline.j2` containing the golden config with variables.
+  212  * **Script:** `render_template.py` to render the template.
+  213  * **Generated Config:** `Meridian-RTR-01.cfg` (The proof).
+  214  ## The Before/After (Proof of Work)
+  215  * **Before:** Manually typing 20+ lines of security config for every new device, risking typos and inconsistency.
+  216  * **After:** Running `python3 render_template.py` which generates the secure config instantly.
+  217  ## Failure Log (Break Phase)
+  218  **Hypothesis 1:** Accidentally pasting Cisco config commands into the Python script instead of the template.
+  219  *Test:* Ran `python3 render_template.py`.
+  220  *Result:* `SyntaxError: invalid syntax`.
+  221  *Fix:* Cleared the Python file and separated the logic: `baseline.j2` for Cisco commands, `render_template.py` for Python logic.
+  222  **Hypothesis 2:** Changing device variables does not update the output.
+  223  *Test:* Changed `hostname` to `Meridian-SW-02` in the Python script and re-ran it.
+  224  *Result:* The output correctly generated the new hostname and IPs, proving the Jinja2 template works dynamically.
+  225  clear
+  226  mkdir L4-vlan-routing && cd L4-vlan-routing nano vlan-lab.clab.yml
+  227  cd ~?netlab-core 
+  228  cd ~/netlab-core
+  229  mkdir L4-vlan-routing
+  230  cd L4-vlan-routing 
+  231  nano vlan-lab.clab.yml
+  232  sudo containerlab deploy -t vlan-lab.clab.yml
+  233  sudo docker exec -it clab-vlan-lab-sw1 bash 
+  234  sudo docker exec -it clab-vlan-lab-r1 bash 
+  235  sudo docker exec -it clab-vlan-lab-pc1 sh
+  236  sudo docker exec -it clab-vlan-lab-r1 bash 
+  237  sudo containerlab destroy -t vlan-lab.clab.yml
+  238  cat << 'EOF' > vlan-lab.clab.yml
+name: vlan-lab
+topology:
+  nodes:
+    r1:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip link add link eth1 name eth1.10 type vlan id 10
+        - ip link add link eth1 name eth1.20 type vlan id 20
+        - ip addr add 10.0.10.1/24 dev eth1.10
+        - ip addr add 10.0.20.1/24 dev eth1.20
+        - ip link set eth1 up
+        - ip link set eth1.10 up
+        - ip link set eth1.20 up
+        - sysctl -w net.ipv4.ip_forward=1
+
+    sw1:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip link add name br10 type bridge
+        - ip link add name br20 type bridge
+        - ip link set eth1 master br10
+        - ip link set eth2 master br20
+        - ip link set eth3 master br10
+        - ip link add link eth2 name eth2.10 type vlan id 10
+        - ip link add link eth2 name eth2.20 type vlan id 20
+        - ip link set eth2.10 master br10
+        - ip link set eth2.20 master br20
+        - ip link set br10 up
+        - ip link set br20 up
+        - ip link set eth1 up
+        - ip link set eth2 up
+        - ip link set eth3 up
+        - ip link set eth2.10 up
+        - ip link set eth2.20 up
+
+    pc1:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip addr add 10.0.10.10/24 dev eth1
+        - ip route add default via 10.0.10.1
+        - ip link set eth1 up
+
+    pc2:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip addr add 10.0.20.10/24 dev eth1
+        - ip route add default via 10.0.20.1
+        - ip link set eth1 up
+
+  links:
+    - endpoints: ["sw1:eth1", "r1:eth1"]
+    - endpoints: ["sw1:eth2", "sw3:eth1"]
+    - endpoints: ["sw1:eth3", "pc1:eth1"]
+    - endpoints: ["sw3:eth2", "r1:eth2"]
+    - endpoints: ["sw3:eth3", "pc2:eth1"]
+EOF
+
+  239  sudo containerlab deploy -t vlan-lab.clab.yml
+  240  cat << 'EOF' > vlan-lab.clab.yml
+name: vlan-lab
+topology:
+  nodes:
+    r1:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip link add link eth1 name eth1.10 type vlan id 10
+        - ip link add link eth1 name eth1.20 type vlan id 20
+        - ip addr add 10.0.10.1/24 dev eth1.10
+        - ip addr add 10.0.20.1/24 dev eth1.20
+        - ip link set eth1 up
+        - ip link set eth1.10 up
+        - ip link set eth1.20 up
+        - sysctl -w net.ipv4.ip_forward=1
+
+    sw1:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip link add name br10 type bridge
+        - ip link add name br20 type bridge
+        - ip link set eth1 master br10
+        - ip link set eth2 master br20
+        - ip link set eth3 master br10
+        - ip link add link eth2 name eth2.10 type vlan id 10
+        - ip link add link eth2 name eth2.20 type vlan id 20
+        - ip link set eth2.10 master br10
+        - ip link set eth2.20 master br20
+        - ip link set br10 up
+        - ip link set br20 up
+        - ip link set eth1 up
+        - ip link set eth2 up
+        - ip link set eth3 up
+        - ip link set eth2.10 up
+        - ip link set eth2.20 up
+
+    pc1:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip addr add 10.0.10.10/24 dev eth1
+        - ip route add default via 10.0.10.1
+        - ip link set eth1 up
+
+    pc2:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip addr add 10.0.20.10/24 dev eth1
+        - ip route add default via 10.0.20.1
+        - ip link set eth1 up
+
+  links:
+    - endpoints: ["sw1:eth1", "r1:eth1"]
+    - endpoints: ["sw1:eth2", "sw3:eth1"]
+    - endpoints: ["sw1:eth3", "pc1:eth1"]
+    - endpoints: ["sw3:eth2", "r1:eth2"]
+    - endpoints: ["sw3:eth3", "pc2:eth1"]
+EOF
+
+  241  echo "bmFtZTogdmxhbi1sYWIKdG9wb2xvZ3k6CiAgbm9kZXM6CiAgICByMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgICAgZXhlYzoKICAgICAgICAtIGlwIGxpbmsgYWRkIGxpbmsgZXRoMSBuYW1lIGV0aDEuMTAgdHlwZSB2bGFuIGlkIDEwCiAgICAgICAgLSBpcCBsaW5rIGFkZCBsaW5rIGV0aDEgbmFtZSBldGgxLjIwIHR5cGUgdmxhbiBpZCAyMAogICAgICAgIC0gaXAgYWRkciBhZGQgMTAuMC4xMC4xLzI0IGRldiBldGgxLjEwCiAgICAgICAgLSBpcCBhZGRyIGFkZCAxMC4wLjIwLjEvMjQgZGV2IGV0aDEuMjAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEuMTAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEuMjAgdXAKICAgICAgICAtIHN5c2N0bCAtdyBuZXQuaXB2NC5pcF9mb3J3YXJkPTEKICAgIHN3MToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgICAgZXhlYzoKICAgICAgICAtIGlwIGxpbmsgYWRkIG5hbWUgYnIxMCB0eXBlIGJyaWRnZQogICAgICAgIC0gaXAgbGluayBhZGQgbmFtZSBicjIwIHR5cGUgYnJpZGdlCiAgICAgICAgLSBpcCBsaW5rIHNldCBldGgxIG1hc3RlciBicjEwCiAgICAgICAgLSBpcCBsaW5rIHNldCBldGgzIG1hc3RlciBicjEwCiAgICAgICAgLSBpcCBsaW5rIGFkZCBsaW5rIGV0aDIgbmFtZSBldGgyLjEwIHR5cGUgdmxhbiBpZCAxMAogICAgICAgIC0gaXAgbGluayBhZGQgbGluayBldGgyIG5hbWUgZXRoMi4yMCB0eXBlIHZsYW4gaWQgMjAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIuMTAgbWFzdGVyIGJyMTAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIuMjAgbWFzdGVyIGJyMjAKICAgICAgICAtIGlwIGxpbmsgc2V0IGJyMTAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGJyMjAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDMgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIuMTAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIuMjAgdXAKICAgIHN3MzoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgICAgZXhlYzoKICAgICAgICAtIGlwIGxpbmsgYWRkIG5hbWUgYnIzMCB0eXBlIGJyaWRnZQogICAgICAgIC0gaXAgbGluayBzZXQgZXRoMSBtYXN0ZXIgYnIzMAogICAgICAgIC0gaXAgbGluayBzZXQgZXRoMyBtYXN0ZXIgYnIzMAogICAgICAgIC0gaXAgbGluayBhZGQgbGluayBldGgyIG5hbWUgZXRoMi4yMCB0eXBlIHZsYW4gaWQgMjAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIuMjAgbWFzdGVyIGJyMzAKICAgICAgICAtIGlwIGxpbmsgc2V0IGJyMzAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDMgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIuMjAgdXAKICAgIHBjMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgICAgZXhlYzoKICAgICAgICAtIGlwIGFkZHIgYWRkIDEwLjAuMTAuMTAvMjQgZGV2IGV0aDEKICAgICAgICAtIGlwIHJvdXRlIGFkZCBkZWZhdWx0IHZpYSAxMC4wLjEwLjEKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgIHBjMjoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgICAgZXhlYzoKICAgICAgICAtIGlwIGFkZHIgYWRkIDEwLjAuMjAuMTAvMjQgZGV2IGV0aDEKICAgICAgICAtIGlwIHJvdXRlIGFkZCBkZWZhdWx0IHZpYSAxMC4wLjIwLjEKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKCiAgbGlua3M6CiAgICAtIGVuZHBvaW50czogWyJzdzE6ZXRoMSIsICJyMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgyIiwgInN3MzoldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgzIiwgInBjMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MzoldGgyIiwgInIxOmV0aDIiXQogICAgLSBlbmRwb2ludHM6IFsic3czOmV0aDMiLCAicGMyOmV0aDEiXQo=" | base64 -d > vlan-lab.clab.yml
+  242  sudo containerlab deploy -t vlan-lab.clab.yml
+  243  sudo containerlab destroy -t vlan-lab.clab.yml
+  244  echo "bmFtZTogdmxhbi1sYWIKdG9wb2xvZ3k6CiAgbm9kZXM6CiAgICByMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHN3MToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHN3MzoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHBjMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHBjMjoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKCiAgbGlua3M6CiAgICAtIGVuZHBvaW50czogWyJzdzE6ZXRoMSIsICJyMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgyIiwgInN3MzoldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgzIiwgInBjMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MzoldGgyIiwgInIxOmV0aDIiXQogICAgLSBlbmRwb2ludHM6IFsic3czOmV0aDMiLCAicGMyOmV0aDEiXQo=" | base64 -d > vlan-lab.clab.yml
+  245  sudo containerlab deploy -t vlan-lab.clab.yml
+  246  sudo containerlab destroy -t vlan-lab.clab.yml --cleanup
+  247  sudo docker ps -a | grep clab
+  248  echo "bmFtZTogdmxhbi1sYWIKdG9wb2xvZ3k6CiAgbm9kZXM6CiAgICByMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHN3MToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHN3MzoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHBjMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHBjMjoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKCiAgbGlua3M6CiAgICAtIGVuZHBvaW50czogWyJzdzE6ZXRoMSIsICJyMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgyIiwgInN3MzoldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgzIiwgInBjMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MzoldGgyIiwgInIxOmV0aDIiXQogICAgLSBlbmRwb2ludHM6IFsic3czOmV0aDMiLCAicGMyOmV0aDEiXQo=" | base64 -d > vlan-lab.clab.yml
+  249  sudo containerlab deploy -t vlan-lab.clab.yml
+  250  sudo docker exec clab-vlan-lab-r1 sh -c "ip link add link eth1 name eth1.10 type vlan id 10 && ip link add link eth1 name eth1.20 type vlan id 20 && ip addr add 10.0.10.1/24 dev eth1.10 && ip addr add 10.0.20.1/24 dev eth1.20 && ip link set eth1 up && ip link set eth1.10 up && ip link set eth1.20 up && sysctl -w net.ipv4.ip_forward=1"
+  251  sudo docker exec clab-vlan-lab-pc1 sh -c "ip addr add 10.0.10.10/24 dev eth1 && ip link set eth1 up && ip route add default via 10.0.10.1"
+  252  sudo docker exec clab-vlan-lab-pc2 sh -c "ip addr add 10.0.20.10/24 dev eth1 && ip link set eth1 up && ip route add default via 10.0.20.1"
+  253  sudo docker exec clab-vlan-lab-sw1 sh -c "ip link add name br10 type bridge && ip link add name br20 type bridge && ip link set eth1 master br10 && ip link set eth3 master br10 && ip link add link eth2 name eth2.10 type vlan id 10 && ip link add link eth2 name eth2.20 type vlan id 20 && ip link set eth2.10 master br10 && ip link set eth2.20 master br20 && ip link set br10 up && ip link set br20 up && ip link set eth1 up && ip link set eth2 up && ip link set eth3 up && ip link set eth2.10 up && ip link set eth2.20 up"
+  254  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link add name br30 type bridge && ip link set eth1 master br30 && ip link set eth3 master br30 && ip link add link eth2 name eth2.20 type vlan id 20 && ip link set eth2.20 master br30 && ip link set br30 up && ip link set eth1 up && ip link set eth2 up && ip link set eth3 up && ip link set eth2.20 up"
+  255  sudo docker exec -it clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  256  sudo containerlab deploy -t vlan-lab.clab.yml
+  257  sudo containerlab destroy -t vlan-lab.clab.yml --cleanup
+  258  cat << 'EOF' > vlan-lab.clab.yml
+name: vlan-lab
+topology:
+  nodes:
+    r1:
+      kind: linux
+      image: alpine:latest
+    sw1:
+      kind: linux
+      image: alpine:latest
+    sw3:
+      kind: linux
+      image: alpine:latest
+    pc1:
+      kind: linux
+      image: alpine:latest
+    pc2:
+      kind: linux
+      image: alpine:latest
+EOF
+
+  259  sudo containerlab deploy -t vlan-lab.clab.yml
+  260  sudo docker network create net-sw1-r1
+  261  sudo docker network create net-sw1-sw3
+  262  sudo docker network create net-sw1-pc1 
+  263  sudo docker network create net-sw3-r1
+  264  sudo docker network create net-sw3-pc2 
+  265  sudo docker network connect net-sw1-sw3 clab-vlan-lab-sw1
+  266  sudo docker network connect net-sw1-sw3 clab-vlan-lab-sw3
+  267  sudo docker network connect net-sw1-sw3 clab-vlan-lab-sw1
+  268  sudo docker network connect net-sw1-sw3 clab-vlan-lab-sw3
+  269  sudo docker network connect net-sw1-pc1 clab-vlan-lab-sw1
+  270  sudo docker network connect net-sw1-pc1 clab-vlan-lab-pc1
+  271  sudo docker network connect net-sw3-r1 clab-vlan-lab-sw3
+  272  sudo docker network connect net-sw3-r1 clab-vlan-lab-r1
+  273  sudo docker network connect net-sw3-pc2 clab-vlan-lab-sw3
+  274  sudo docker network connect net-sw3-pc2 clab-vlan-lab-pc2
+  275  sudo docker exec -it clab-vlan-lab-sw1 ip link
+  276  sudo docker exec clab-vlan-lab-r1 sh -c "ip link add link eth1 name eth1.10 type vlan id 10 && ip link add link eth1 name eth1.20 type vlan id 20 && ip addr add 10.0.10.1/24 dev eth1.10 && ip addr add 10.0.20.1/24 dev eth1.20 && ip link set eth1 up && ip link set eth1.10 up && ip link set eth1.20 up && sysctl -w net.ipv4.ip_forward=1"
+  277  sudo docker exec clab-vlan-lab-sw1 sh -c "ip link add name br10 type bridge && ip link add name br20 type bridge && ip link set eth1 master br10 && ip link set eth3 master br10 && ip link add link eth2 name eth2.10 type vlan id 10 && ip link add link eth2 name eth2.20 type vlan id 20 && ip link set eth2.10 master br10 && ip link set eth2.20 master br20 && ip link set br10 up && ip link set br20 up && ip link set eth1 up && ip link set eth2 up && ip link set eth3 up && ip link set eth2.10 up && ip link set eth2.20 up"
+  278  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link add name br30 type bridge && ip link set eth1 master br30 && ip link set eth3 master br30 && ip link add link eth2 name eth2.20 type vlan id 20 && ip link set eth2.20 master br30 && ip link set br30 up && ip link set eth1 up && ip link set eth2 up && ip link set eth3 up && ip link set eth2.20 up"
+  279  sudo docker exec clab-vlan-lab-pc1 sh -c "ip addr add 10.0.10.10/24 dev eth1 && ip link set eth1 up && ip route add default via 10.0.10.1"
+  280  sudo docker exec clab-vlan-lab-pc2 sh -c "ip addr add 10.0.20.10/24 dev eth1 && ip link set eth1 up && ip route add default via 10.0.20.1"
+  281  sudo docker exec -it clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  282  sudo docker exec -it clab-vlan-lab-sw1 ip link show
+  283  sudo docker exec -it clab-vlan-lab-pc1 ip link show
+  284  sudo docker exec clab-vlan-lab-sw1 sh -c "ip link delete br10 || true; ip link delete br20 || true; ip link add name br10 type bridge; ip link add name br20 type bridge; ip link set eth1 master br10; ip link set eth2 master br10; ip link add link eth2 name eth2.10 type vlan id 10; ip link add link eth2 name eth2.20 type vlan id 20; ip link set eth2.10 master br10; ip link set eth2.20 master br20; ip link set br10 up; ip link set br20 up; ip link set eth1 up; ip link set eth2 up"
+  285  sudo docker exec clab-vlan-lab-sw1 ip link show
+  286  sudo docker exec clab-vlan-lab-pc1 ip link show
+  287  sudo docker exec clab-vlan-lab-r1 ip link show
+  288  sudo docker exec clab-vlan-lab-sw1 sh -c "ip link delete br10 || true; ip link delete br20 || true; ip link add name br10 type bridge; ip link add name br20 type bridge; ip link set eth1.10 master br10; ip link set eth1.20 master br20; ip link set eth2 master br10; ip link set br10 up; ip link set br20 up; ip link set eth1 up; ip link set eth1.10 up; ip link set eth1.20 up; ip link set eth2 up"
+  289  sudo docker exec -it clab-vlan-lab-sw1 ping -c 2 10.0.10.10
+  290  sudo docker exec -it clab-vlan-lab-sw1 ping -c 2 10.0.10.1
+  291  sudo docker exec -it clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  292  sudo docker exec clab-vlan-lab-sw1 sh -c "ip link delete br10 || true; ip link delete br20 || true; ip link delete eth1.10 || true; ip link delete eth1.20 || true; ip link add name br10 type bridge; ip link add name br20 type bridge; ip link add link eth1 name eth1.10 type vlan id 10; ip link add link eth1 name eth1.20 type vlan id 20; ip link set eth1.10 master br10; ip link set eth1.20 master br20; ip link set eth2 master br10; ip link set br10 up; ip link set br20 up; ip link set eth1 up; ip link set eth1.10 up; ip link set eth1.20 up; ip link set eth2 up"
+  293  sudo docker exec clab-vlan-lab-sw1 sh -c "ip link add link eth1 name eth1.10 type vlan id 10; ip link add link eth1 name eth1.20 type vlan id 20"
+  294  sudo docker exec clab-vlan-lab-sw1 sh -c "ip link delete br10 || true; ip link delete br20 || true"
+  295  clear
+  296  sudo containerlab destroy -t vlan-lab.clab.yml --cleanup
+  297  sudo docker network prune -f
+  298  cat << 'EOF' > vlan-lab.clab.yml
+name: vlan-lab
+topology:
+  nodes:
+    r1:
+      kind: linux
+      image: frrouting/frr:latest
+      exec:
+        - ip link add link eth1 name eth1.10 type vlan id 10
+        - ip link add link eth1 name eth1.20 type vlan id 20
+        - ip addr add 10.0.10.1/24 dev eth1.10
+        - ip addr add 10.0.20.1/24 dev eth1.20
+        - ip link set eth1 up
+        - ip link set eth1.10 up
+        - ip link set eth1.20 up
+        - sysctl -w net.ipv4.ip_forward=1
+
+    sw1:
+      kind: linux
+      image: frrouting/frr:latest
+      exec:
+        - ip link add name br10 type bridge
+        - ip link add name br20 type bridge
+        - ip link set eth1 master br10
+        - ip link set eth2 master br10
+        - ip link set eth3 master br20
+        - ip link set br10 up
+        - ip link set br20 up
+        - ip link set eth1 up
+        - ip link set eth2 up
+        - ip link set eth3 up
+
+    sw3:
+      kind: linux
+      image: frrouting/frr:latest
+      exec:
+        - ip link add name br30 type bridge
+        - ip link set eth1 master br30
+        - ip link set eth2 master br30
+        - ip link set br30 up
+        - ip link set eth1 up
+        - ip link set eth2 up
+
+    pc1:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip addr add 10.0.10.10/24 dev eth1
+        - ip link set eth1 up
+        - ip route add default via 10.0.10.1
+
+    pc2:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip addr add 10.0.20.10/24 dev eth1
+        - ip link set eth1 up
+        - ip route add default via 10.0.20.1
+
+  links:
+    - endpoints: ["sw1:eth1", "r1:eth1"]
+    - endpoints: ["sw1:eth2", "pc1:eth1"]
+    - endpoints: ["sw1:eth3", "sw3:eth1"]
+    - endpoints: ["sw3:eth2", "pc2:eth1"]
+    - endpoints: ["r1:eth2", "sw3:eth2"]
+EOF
+
+  299  sudo containerlab deploy -t vlan-lab.clab.yml
+  300  echo "bmFtZTogdmxhbi1sYWIKdG9wb2xvZ3k6CiAgbm9kZXM6CiAgICByMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGZscm91dGluZy9mcnI6bGF0ZXN0CiAgICAgIGV4ZWM6CiAgICAgICAgLSBpcCBsaW5rIGFkZCBsaW5rIGV0aDEgbmFtZSBldGgxLjEwIHR5cGUgdmxhbiBpZCAxMAogICAgICAgIC0gaXAgbGluayBhZGQgbGluayBldGgxIG5hbWUgZXRoMS4yMCB0eXBlIHZsYW4gaWQgMjAKICAgICAgICAtIGlwIGFkZHIgYWRkIDEwLjAuMTAuMS8yNCBkZXYgZXRoMS4xMAogICAgICAgIC0gaXAgYWRkciBhZGQgMTAuMC4yMC4xLzI0IGRldiBldGgxLjIwCiAgICAgICAgLSBpcCBsaW5rIHNldCBldGgxIHVwCiAgICAgICAgLSBpcCBsaW5rIHNldCBldGgxLjEwIHVwCiAgICAgICAgLSBpcCBsaW5rIHNldCBldGgxLjIwIHVwCiAgICAgICAgLSBzeXNjdGwgLXcgbmV0LmlwdjQuaXBfZm9yd2FyZD0xCiAgICBzdzE6CiAgICAgIGtpbmQ6IGxpbnV4CiAgICAgIGltYWdlOiBmcnJvdXRpbmcvZnJyOmxhdGVzdAogICAgICBleGVjOgogICAgICAgIC0gaXAgbGluayBhZGQgbmFtZSBicjEwIHR5cGUgYnJpZGdlCiAgICAgICAgLSBpcCBsaW5rIGFkZCBuYW1lIGJyMjAgdHlwZSBicmlkZ2UKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgbWFzdGVyIGJyMTAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgbWFzdGVyIGJyMTAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDMgbWFzdGVyIGJyMjAKICAgICAgICAtIGlwIGxpbmsgc2V0IGJyMTAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGJyMjAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDMgdXAKICAgIHN3MzoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGZscm91dGluZy9mcnI6bGF0ZXN0CiAgICAgIGV4ZWM6CiAgICAgICAgLSBpcCBsaW5rIGFkZCBuYW1lIGJyMzAgdHlwZSBicmlkZ2UKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgbWFzdGVyIGJyMzAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgbWFzdGVyIGJyMzAKICAgICAgICAtIGlwIGxpbmsgc2V0IGJyMzAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgdXAKICAgIHBjMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgICAgZXhlYzoKICAgICAgICAtIGlwIGFkZHIgYWRkIDEwLjAuMTAuMTAvMjQgZGV2IGV0aDEKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIHJvdXRlIGFkZCBkZWZhdWx0IHZpYSAxMC4wLjEwLjEKICAgIHBjMjoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgICAgZXhlYzoKICAgICAgICAtIGlwIGFkZHIgYWRkIDEwLjAuMjAuMTAvMjQgZGV2IGV0aDEKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIHJvdXRlIGFkZCBkZWZhdWx0IHZpYSAxMC4wLjIwLjEKCiAgbGlua3M6CiAgICAtIGVuZHBvaW50czogWyJzdzE6ZXRoMSIsICJyMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgyIiwgInBjMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgzIiwgInN3MzoldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MzoldGgyIiwgInBjMjpldGgxIl0=" | base64 -d > vlan-lab.clab.yml
+  301  sudo containerlab destroy -t vlan-lab.clab.yml --cleanup
+  302  rm vlan-lab.clab.yml
+  303  wget -O vlan-lab.clab.yml https://gist.githubusercontent.com/Ronique-TheYoungTech/8f7b7b7c2a0f6d7e9a3b3e3f3e3f3e3f/raw/vlan-lab.clab.yml
+  304  echo "bmFtZTogdmxhbi1sYWIKdG9wb2xvZ3k6CiAgbm9kZXM6CiAgICByMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGZscm91dGluZy9mcnI6bGF0ZXN0CiAgICAgIGV4ZWM6CiAgICAgICAgLSBpcCBsaW5rIGFkZCBsaW5rIGV0aDEgbmFtZSBldGgxLjEwIHR5cGUgdmxhbiBpZCAxMAogICAgICAgIC0gaXAgbGluayBhZGQgbGluayBldGgxIG5hbWUgZXRoMS4yMCB0eXBlIHZsYW4gaWQgMjAKICAgICAgICAtIGlwIGFkZHIgYWRkIDEwLjAuMTAuMS8yNCBkZXYgZXRoMS4xMAogICAgICAgIC0gaXAgYWRkciBhZGQgMTAuMC4yMC4xLzI0IGRldiBldGgxLjIwCiAgICAgICAgLSBpcCBsaW5rIHNldCBldGgxIHVwCiAgICAgICAgLSBpcCBsaW5rIHNldCBldGgxLjEwIHVwCiAgICAgICAgLSBpcCBsaW5rIHNldCBldGgxLjIwIHVwCiAgICAgICAgLSBzeXNjdGwgLXcgbmV0LmlwdjQuaXBfZm9yd2FyZD0xCiAgICBzdzE6CiAgICAgIGtpbmQ6IGxpbnV4CiAgICAgIGltYWdlOiBmcnJvdXRpbmcvZnJyOmxhdGVzdAogICAgICBleGVjOgogICAgICAgIC0gaXAgbGluayBhZGQgbmFtZSBicjEwIHR5cGUgYnJpZGdlCiAgICAgICAgLSBpcCBsaW5rIGFkZCBuYW1lIGJyMjAgdHlwZSBicmlkZ2UKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgbWFzdGVyIGJyMTAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgbWFzdGVyIGJyMTAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDMgbWFzdGVyIGJyMjAKICAgICAgICAtIGlwIGxpbmsgc2V0IGJyMTAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGJyMjAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDMgdXAKICAgIHN3MzoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGZscm91dGluZy9mcnI6bGF0ZXN0CiAgICAgIGV4ZWM6CiAgICAgICAgLSBpcCBsaW5rIGFkZCBuYW1lIGJyMzAgdHlwZSBicmlkZ2UKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgbWFzdGVyIGJyMzAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgbWFzdGVyIGJyMzAKICAgICAgICAtIGlwIGxpbmsgc2V0IGJyMzAgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDIgdXAKICAgIHBjMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgICAgZXhlYzoKICAgICAgICAtIGlwIGFkZHIgYWRkIDEwLjAuMTAuMTAvMjQgZGV2IGV0aDEKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIHJvdXRlIGFkZCBkZWZhdWx0IHZpYSAxMC4wLjEwLjEKICAgIHBjMjoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgICAgZXhlYzoKICAgICAgICAtIGlwIGFkZHIgYWRkIDEwLjAuMjAuMTAvMjQgZGV2IGV0aDEKICAgICAgICAtIGlwIGxpbmsgc2V0IGV0aDEgdXAKICAgICAgICAtIGlwIHJvdXRlIGFkZCBkZWZhdWx0IHZpYSAxMC4wLjIwLjEKCiAgbGlua3M6CiAgICAtIGVuZHBvaW50czogWyJzdzE6ZXRoMSIsICJyMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgyIiwgInBjMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgzIiwgInN3MzoldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MzoldGgyIiwgInBjMjpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInIxOmV0aDIiLCAic3czOmV0aDIiXQo=" | base64 -d > vlan-lab.clab.yml
+  305  sudo containerlab deploy -t vlan-lab.clab.yml
+  306  nano vlan-lab.clab.yml
+  307  sudo containerlab deploy -t vlan-lab.clab.yml
+  308  rm vlan-lab.clab.yml
+  309  curl -o vlan-lab.clab.yml https://raw.githubusercontent.com/Ronique-TheYoungTech/netlab-core/main/L4-vlan-routing/vlan-lab.clab.yml
+  310  echo "bmFtZTogdmxhbi1sYWIKdG9wb2xvZ3k6CiAgbm9kZXM6CiAgICByMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHN3MToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHN3MzoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHBjMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHBjMjoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKCiAgbGlua3M6CiAgICAtIGVuZHBvaW50czogWyJzdzE6ZXRoMSIsICJyMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgyIiwgInBjMTpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MTpldGgzIiwgInN3MzoldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInN3MzoldGgyIiwgInBjMjpldGgxIl0KICAgIC0gZW5kcG9pbnRzOiBbInIxOmV0aDIiLCAic3czOmV0aDIiXQo=" | base64 -d > vlan-lab.clab.yml
+  311  sudo containerlab deploy -t vlan-lab.clab.yml
+  312  sudo containerlab destroy -t vlan-lab.clab.yml --cleanup
+  313  echo "bmFtZTogdmxhbi1sYWIKdG9wb2xvZ3k6CiAgbm9kZXM6CiAgICByMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHN3MToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHN3MzoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHBjMToKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QKICAgIHBjMjoKICAgICAga2luZDogbGludXgKICAgICAgaW1hZ2U6IGFscGluZTpsYXRlc3QK" | base64 -d > vlan-lab.clab.yml
+  314  sudo containerlab deploy -t vlan-lab.clab.yml
+  315  sudo docker network create net-sw1-r1
+  316  sudo docker network create net-sw1-pc1
+  317  sudo docker network create net-sw1-sw3
+  318  sudo docker network create net-sw3-pc2
+  319  sudo docker network create net-r1-sw3
+  320  sudo docker network connect net-sw1-r1 clab-vlan-lab-sw1
+  321  sudo docker network connect net-sw1-r1 clab-vlan-lab-r1
+  322  sudo docker network connect net-sw1-pc1 clab-vlan-lab-sw1
+  323  sudo docker network connect net-sw1-pc1 clab-vlan-lab-pc1
+  324  sudo docker network connect net-sw1-sw3 clab-vlan-lab-sw1
+  325  sudo docker network connect net-sw1-sw3 clab-vlan-lab-sw3
+  326  sudo docker network connect net-sw3-pc2 clab-vlan-lab-sw3
+  327  sudo docker network connect net-sw3-pc2 clab-vlan-lab-pc2
+  328  sudo docker network connect net-r1-sw3 clab-vlan-lab-r1
+  329  sudo docker network connect net-r1-sw3 clab-vlan-lab-sw3
+  330  sudo docker exec -it clab-vlan-lab-sw1 ip link show
+  331  sudo docker exec clab-vlan-lab-r1 sh -c "ip link add link eth1 name eth1.10 type vlan id 10; ip link add link eth1 name eth1.20 type vlan id 20; ip addr add 10.0.10.1/24 dev eth1.10; ip addr add 10.0.20.1/24 dev eth1.20; ip link set eth1 up; ip link set eth1.10 up; ip link set eth1.20 up; sysctl -w net.ipv4.ip_forward=1"
+  332  sudo docker exec clab-vlan-lab-sw1 sh -c "ip link add link eth1 name eth1.10 type vlan id 10; ip link add link eth1 name eth1.20 type vlan id 20; ip link add name br10 type bridge; ip link add name br20 type bridge; ip link set eth1.10 master br10; ip link set eth1.20 master br20; ip link set eth2 master br10; ip link set eth3 master br20; ip link set br10 up; ip link set br20 up; ip link set eth1 up; ip link set eth2 up; ip link set eth3 up; ip link set eth1.10 up; ip link set eth1.20 up"
+  333  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link add link eth1 name eth1.20 type vlan id 20; ip link add name br30 type bridge; ip link set eth1.20 master br30; ip link set eth2 master br30; ip link set br30 up; ip link set eth1 up; ip link set eth2 up; ip link set eth1.20 up"
+  334  sudo docker exec clab-vlan-lab-pc1 sh -c "ip addr add 10.0.10.10/24 dev eth1; ip link set eth1 up; ip route add default via 10.0.10.1"
+  335  sudo docker exec clab-vlan-lab-pc2 sh -c "ip addr add 10.0.20.10/24 dev eth1; ip link set eth1 up; ip route add default via 10.0.20.1"
+  336  sudo docker exec -it clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  337  clear
+  338  sudo docker exec -it clab-vlan-lab-pc1 ping -c 2 10.0.10.1
+  339  sudo docker exec -it clab-vlan-lab-r1 ping -c 2 10.0.20.10
+  340  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link add link eth1 name eth1.20 type vlan id 20; ... ip link set eth1.20 master br30; ip link set eth2 master br30 ..."
+  341  sudo docker exec -it clab-vlan-lab-r1 ip route
+  342  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link delete br30 || true; ip link delete eth1.20 || true; ip link add name br30 type bridge; ip link set eth1 master br30; ip link set eth2 master br30; ip link set br30 up; ip link set eth1 up; ip link set eth2 up"
+  343  sudo docker exec -it clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  344  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link delete br30 || true; ip link delete eth1.20 || true; ip link add name br30 type bridge; ip link add link eth1 name eth1.20 type vlan id 20; ip link set eth1.20 master br30; ip link set eth2 master br30; ip link set br30 up; ip link set eth1 up; ip link set eth2 up; ip link set eth1.20 up"
+  345  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link delete br30 || true; ip link delete eth1.20 || true"
+  346  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link add name br30 type bridge; ip link add link eth1 name eth1.20 type vlan id 20; ip link set eth1.20 master br30; ip link set eth2 master br30; ip link set br30 up; ip link set eth1 up; ip link set eth2 up; ip link set eth1.20 up"
+  347  sudo docker exec -it clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  348  sudo docker exec -it clab-vlan-lab-sw3 ip link show
+  349  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link delete br30 || true; ip link delete eth1.20 || true; ip link add name br30 type bridge; ip link add link eth1 name eth1.20 type vlan id 20; ip link set eth1.20 master br30; ip link set eth2 master br30; ip link set br30 up; ip link set eth1 up; ip link set eth2 up; ip link set eth1.20 up"
+  350  sudo docker exec clab-vlan-lab-sw3 sh -c "ip link set eth3 down"
+  351  sudo docker exec -it clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  352  sudo exec clab-vlan-lab-sw1 bridge link 
+  353  clear 
+  354  sudo exec clab-vlan-lab-sw1 bridge link 
+  355  sudo docker exec clab-vlan-lab-sw1 bridge link 
+  356  sudo docker exec clab-vlan-lab-sw1 ip link show 
+  357  sudo docker exec clab-vlan-lab-sw1 sh -c "ip link set eth3 nomaster; ip link add link eth3 name eth3.20 type vlan id 20; ip link set eth3.20 master br20; ip link set eth3.20 up"
+  358  sudo docker exec clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  359  sudo docker exec clab-vlan-lab-sw1 ip link show eth3.20
+  360  sudo docker exec clab-vlan-lab-r1 ping -c 3 10.0.20.10
+  361  sudo docker exec clab-vlan-lab-r1 sysctl net.ipv4.ip_forward
+  362  sudo docker exec clab-vlan-lab-pc2 ip route
+  363  sudo docker exec clab-vlan-lab-pc1 ip route
+  364  sudo docker exec clab-vlan-lab-pc1 ip route add 10.0.0.0/16 via 10.0.10.1
+  365  sudo docker exec clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  366  sudo docker exec clab-vlan-lab-pc2 ip route add 10.0.0.0/16 via 10.0.20.1
+  367  sudo docker exec clab-vlan-lab-pc1 ping -c 4 10.0.20.10
+  368  history > ~/netlab-core/L4-vlan-routing/session1-history.txt

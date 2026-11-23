@@ -1,0 +1,36 @@
+### sw1 VLAN table (bridge vlan show)
+port              vlan-id  
+sw1-r1            10
+                  20
+                  30
+                  40
+                  50
+                  60
+                  99 PVID Egress Untagged
+sw1-sw2           10
+                  20
+                  30
+                  40
+                  50
+                  60
+                  99 PVID Egress Untagged
+sw1-sw3           10
+                  20
+                  30
+                  40
+                  50
+                  60
+                  99 PVID Egress Untagged
+sw1-pc10          10 PVID Egress Untagged
+sw1-pc20          20 PVID Egress Untagged
+
+### r1 addresses
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0@if174       UP             172.20.20.3/24 3fff:172:20:20::3/64 fe80::1cdb:89ff:fea6:8062/64 
+r1-sw1.10@r1-sw1 UP             10.0.10.1/24 fe80::4c8c:9aff:fed6:4ff3/64 
+r1-sw1.20@r1-sw1 UP             10.0.20.1/24 fe80::4c8c:9aff:fed6:4ff3/64 
+r1-sw1.30@r1-sw1 UP             10.0.30.1/24 fe80::4c8c:9aff:fed6:4ff3/64 
+r1-sw1.40@r1-sw1 UP             10.0.40.1/24 fe80::4c8c:9aff:fed6:4ff3/64 
+r1-sw1.50@r1-sw1 UP             10.0.50.1/24 fe80::4c8c:9aff:fed6:4ff3/64 
+r1-sw1.60@r1-sw1 UP             10.0.60.1/24 fe80::4c8c:9aff:fed6:4ff3/64 
+r1-sw1@if181     UP             fe80::4c8c:9aff:fed6:4ff3/64 
