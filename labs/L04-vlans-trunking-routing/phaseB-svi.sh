@@ -18,6 +18,8 @@ for v in "${VLANS[@]}"; do nx r1 ip link del "r1-sw1.$v" 2>/dev/null || true; do
 echo "==> Create SVIs on sw1  (~ Cisco: ip routing / interface vlan X)"
 nx sw1 sysctl -qw net.ipv4.ip_forward=1
 for v in "${VLANS[@]}"; do
+  # Idempotent: skip SVIs that already exist (a second run used to fail with "File exists")
+  if nx sw1 ip link show "br0.$v" >/dev/null 2>&1; then echo "   br0.$v already exists - skipping"; continue; fi
   nx sw1 bridge vlan add dev br0 vid "$v" self     # let the switch itself join VLAN X
   nx sw1 ip link add link br0 name "br0.$v" type vlan id "$v"
   nx sw1 ip addr add "10.0.$v.1/24" dev "br0.$v"
