@@ -137,8 +137,21 @@ What it shows:
 | 3 | `git pull` refused: untracked L3 `README.md` would be overwritten | A local copy of a file existed outside git | Moved it aside, pulled, compared with `diff` |
 | 4 | Second run of `phaseB-svi.sh`: `RTNETLINK answers: File exists` | Script was not idempotent | Now skips SVIs that already exist |
 
+## Lab summary
+
+- **Built:** a 3-switch, 6-VLAN network with 802.1Q trunks (native VLAN 99, VLAN 1 unused), routed between VLANs two ways: router-on-a-stick, then Layer 3 switch SVIs.
+- **Broke and fixed:** pc1 could reach its gateway but not pc2. Bottom-up, divide-and-conquer testing found two root causes: a trunk/access mismatch between sw1 and sw3, and hosts sending off-subnet traffic to the management network.
+- **Proved:** 30/30 host pairs reachable in both phases (TTL 63 = one routed hop); captures show the 4-byte 802.1Q tag on the trunk (102 vs 98 bytes).
+
 ## Interview summary
 
-_Problem → design → implementation → verification → failure analysis → lessons, in 6 sentences._
+_Pending: written in my own words during the Tier 0 review pass._
+
+1. **Problem:** A flat office network puts every device in one broadcast domain with no boundaries, so I segmented it into six VLANs by department, giving each its own broadcast domain and forcing all traffic between departments through a single routing point where access can be controlled.
+2. Design: _(review pass)_
+3. Implementation: _(review pass)_
+4. Verification: _(review pass)_
+5. Failure analysis: _(review pass)_
+6. Lessons: _(review pass)_
 
 **Reading:** Odom, *CCNA 200-301 Official Cert Guide Vol. 1* — VLANs, trunking, inter-VLAN routing chapters.
