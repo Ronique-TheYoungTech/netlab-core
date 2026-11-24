@@ -86,12 +86,12 @@ Result (phaseB): 30 passed, 0 failed of 30 inter-host paths
 ### Packet capture
 One ping, pc10 (VLAN 10) → pc20 (VLAN 20), captured simultaneously on the trunk and the access port.
 
-**Trunk `sw1-r1`** — `captures/trunk-sw1-r1.pcap`
+**Trunk `sw1-r1`** — `captures/trunk-sw1-r1.pcapng`
 ```
 ee:b2:be:5f:4b:19 > 4e:8c:9a:d6:4f:f3, ethertype 802.1Q (0x8100), length 102: vlan 10, p 0, ethertype IPv4, 10.0.10.10 > 10.0.20.10: ICMP echo request
 4e:8c:9a:d6:4f:f3 > 3a:cf:7b:6c:ea:b5, ethertype 802.1Q (0x8100), length 102: vlan 20, p 0, ethertype IPv4, 10.0.10.10 > 10.0.20.10: ICMP echo request
 ```
-**Access `sw1-pc10`** — `captures/access-sw1-pc10.pcap`
+**Access `sw1-pc10`** — `captures/access-sw1-pc10.pcapng`
 ```
 ee:b2:be:5f:4b:19 > 4e:8c:9a:d6:4f:f3, ethertype IPv4 (0x0800), length 98: 10.0.10.10 > 10.0.20.10: ICMP echo request
 ```

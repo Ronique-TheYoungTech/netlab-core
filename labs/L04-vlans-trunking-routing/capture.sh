@@ -28,6 +28,11 @@ echo
 echo "==> ACCESS (expect NO vlan tag, ethertype IPv4):"
 tcpdump -e -nn -r captures/access-sw1-pc10.pcap 2>/dev/null | grep -i icmp | head -4
 
-echo
+# tcpdump writes classic .pcap; convert to .pcapng (the ladder's format) if editcap exists
+if command -v editcap >/dev/null; then
+  for f in captures/trunk-sw1-r1 captures/access-sw1-pc10; do editcap -F pcapng "$f.pcap" "$f.pcapng" && rm -f "$f.pcap"; done
+  echo; echo "Saved captures/*.pcapng"
+else
+  echo; echo "Install wireshark-common for editcap, or in Wireshark: File > Save As > pcapng"
+fi
 echo "Open in Wireshark from Windows:  explorer.exe captures"
-echo "Then File > Save As > pcapng for the repo copy."
