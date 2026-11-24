@@ -86,12 +86,12 @@ Result (phaseB): 30 passed, 0 failed of 30 inter-host paths
 ### Packet capture
 One ping, pc10 (VLAN 10) → pc20 (VLAN 20), captured simultaneously on the trunk and the access port.
 
-**Trunk `sw1-r1`** — `captures/trunk-sw1-r1.pcap`
+**Trunk `sw1-r1`** — `captures/trunk-sw1-r1.pcapng`
 ```
 ee:b2:be:5f:4b:19 > 4e:8c:9a:d6:4f:f3, ethertype 802.1Q (0x8100), length 102: vlan 10, p 0, ethertype IPv4, 10.0.10.10 > 10.0.20.10: ICMP echo request
 4e:8c:9a:d6:4f:f3 > 3a:cf:7b:6c:ea:b5, ethertype 802.1Q (0x8100), length 102: vlan 20, p 0, ethertype IPv4, 10.0.10.10 > 10.0.20.10: ICMP echo request
 ```
-**Access `sw1-pc10`** — `captures/access-sw1-pc10.pcap`
+**Access `sw1-pc10`** — `captures/access-sw1-pc10.pcapng`
 ```
 ee:b2:be:5f:4b:19 > 4e:8c:9a:d6:4f:f3, ethertype IPv4 (0x0800), length 98: 10.0.10.10 > 10.0.20.10: ICMP echo request
 ```
@@ -137,8 +137,21 @@ What it shows:
 | 3 | `git pull` refused: untracked L3 `README.md` would be overwritten | A local copy of a file existed outside git | Moved it aside, pulled, compared with `diff` |
 | 4 | Second run of `phaseB-svi.sh`: `RTNETLINK answers: File exists` | Script was not idempotent | Now skips SVIs that already exist |
 
+## Lab summary
+
+- **Built:** a 3-switch, 6-VLAN network with 802.1Q trunks (native VLAN 99, VLAN 1 unused), routed between VLANs two ways: router-on-a-stick, then Layer 3 switch SVIs.
+- **Broke and fixed:** pc1 could reach its gateway but not pc2. Bottom-up, divide-and-conquer testing found two root causes: a trunk/access mismatch between sw1 and sw3, and hosts sending off-subnet traffic to the management network.
+- **Proved:** 30/30 host pairs reachable in both phases (TTL 63 = one routed hop); captures show the 4-byte 802.1Q tag on the trunk (102 vs 98 bytes).
+
 ## Interview summary
 
-_Problem → design → implementation → verification → failure analysis → lessons, in 6 sentences._
+_Pending: written in my own words during the Tier 0 review pass._
+
+1. **Problem:** A flat office network puts every device in one broadcast domain with no boundaries, so I segmented it into six VLANs by department, giving each its own broadcast domain and forcing all traffic between departments through a single routing point where access can be controlled.
+2. Design: _(review pass)_
+3. Implementation: _(review pass)_
+4. Verification: _(review pass)_
+5. Failure analysis: _(review pass)_
+6. Lessons: _(review pass)_
 
 **Reading:** Odom, *CCNA 200-301 Official Cert Guide Vol. 1* — VLANs, trunking, inter-VLAN routing chapters.
