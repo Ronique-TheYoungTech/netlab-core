@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# nx NODE COMMAND...  -> run COMMAND inside NODE's network namespace,
+# using the host's tools (tcpdump, arpspoof, dnsmasq, tc, bridge...).
+# Example:  sudo ./nx pc1 ip neigh
+# Same idea as `docker exec`, but works with tools Alpine doesn't have.
+set -euo pipefail
+node=$1; shift
+pid=$(docker inspect -f '{{.State.Pid}}' "clab-l5-$node")
+exec nsenter -t "$pid" -n "$@"

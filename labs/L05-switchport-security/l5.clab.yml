@@ -1,0 +1,16 @@
+# APEX L5 — Switchport Security Suite
+# Nodes only. deploy.sh creates the cables (veth pairs), like L4.
+name: l5
+
+topology:
+  defaults:
+    kind: linux
+    image: alpine:latest
+    cmd: sleep infinity
+
+  nodes:
+    gw: {}    # gateway 10.0.10.1 + the legitimate DHCP server
+    sw1: {}   # the access switch (Linux bridge)
+    pc1: {}   # victim  10.0.10.11
+    pc2: {}   # victim  10.0.10.12
+    atk: {}   # attacker 10.0.10.66
